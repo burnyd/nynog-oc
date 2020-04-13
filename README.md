@@ -3,7 +3,10 @@ This is a repo for a openconfig discussion given at NYNOG to explain the overall
 
 ## Requirements
 [Docker-topo](https://github.com/networkop/docker-topo)
+
 Arista cEOS version 4.23.2F named ceosimage:4.23.2F
+
+[Arista gNMI client](https://github.com/aristanetworks/goarista/tree/master/cmd/gnmi)
 
 ## Demo lab infrastructure
 ![Alt text](gifs/demo.jpg?raw=true "Lab infrastrucure")
