@@ -1,0 +1,22 @@
+{
+    "openconfig-bgp:bgp": {
+        "global": {
+            "config": {
+                "as": 1,
+                "router-id": "1.1.1.1"
+            }
+        },
+        "neighbors": {
+            "neighbor": [
+                {
+                    "neighbor-address": "10.12.0.2",
+                    "config": {
+                        "neighbor-address": "10.12.0.2",
+                        "peer-as": 10,
+                        "description": "Spine 1"
+                    }
+                }
+            ]
+        }
+    }
+}

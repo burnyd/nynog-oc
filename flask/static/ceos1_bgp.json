@@ -1,0 +1,19 @@
+{
+    "global": {
+        "config": {
+            "as": 6501,
+            "router-id": "1.1.1.1"
+        }
+    },
+    "neighbors": {
+        "neighbor": [
+            {   
+                "neighbor-address": "10.12.0.2",
+                "config": {
+                    "neighbor-address": "10.12.0.2",
+                    "peer-as": 6502
+                }
+            }
+        ]
+    }
+}

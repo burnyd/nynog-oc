@@ -1,0 +1,19 @@
+pyang -f tree -p yang/ yang/release/models/bgp/openconfig-bgp.yang  | less
+
+curl http://127.0.0.1:5000/static/bgp_basic.json
+curl http://127.0.0.1:5000/static/ceos1_bgp.json
+
+
+#protos 
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. devices.proto
+
+#get
+gnmi -addr 127.0.0.1:7001 -username arista -password arista get '/network-instances/network-instance[name=default]/protocols/protocol[name=BGP][identifier=BGP]/bgp'
+
+
+#config apply
+gnmi -addr 127.0.0.1:7000 -username arista -password arista replace '/network-instances/network-instance[name=default]/protocols/protocol[name=BGP][identifier=BGP]/bgp' ../../flask/static/ceos1_bgp.json
+gnmi -addr 127.0.0.1:7001 -username arista -password arista replace '/network-instances/network-instance[name=default]/protocols/protocol[name=BGP][identifier=BGP]/bgp' ../../flask/static/ceos2_bgp.json
+
+python py_gnmicli.py -m set-replace -v @../flask/static/ceos1_bgp.json  -t 127.0.0.1 -p 7000 -x /network-instances/network-instance[name=default]/protocols/protocol[name=BGP][identifier=BGP]/bgp -user arista -pass arista -n
+python py_gnmicli.py -m set-replace -v @../flask/static/ceos2_bgp.json  -t 127.0.0.1 -p 7001 -x /network-instances/network-instance[name=default]/protocols/protocol[name=BGP][identifier=BGP]/bgp -user arista -pass arista -n

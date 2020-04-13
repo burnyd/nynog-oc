@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package networks;
+
+message Info {
+    string name = 1;
+    string role = 2;
+}
+
+service Device_Information {
+    rpc Network(Info) returns (Info) {}
+}
+

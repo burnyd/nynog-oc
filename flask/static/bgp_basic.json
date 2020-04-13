@@ -1,0 +1,22 @@
+{
+    "network-instances": {
+        "network-instance": {
+            "default": {
+                "name": "default",
+                "protocols": {
+                    "protocol": [
+                             {
+                                "global": {
+                                    "config": {
+                                        "as": 1,
+                                        "router-id": "1.1.1.1"
+                                }
+                            }
+                        }
+                    
+                    ]
+                }
+            }
+        }
+    }
+}

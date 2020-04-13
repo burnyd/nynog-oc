@@ -1,0 +1,13 @@
+links:
+  - endpoints: ["ceos1:eth0", "ceos2:eth0"]
+    driver: bridge
+  - endpoints: ["ceos1:eth1", "ceos2:eth1"]
+    driver: bridge
+
+VERSION: 2
+CONF_DIR: './config'
+CEOS_IMAGE: ceosimage:4.23.2F
+PUBLISH_BASE:
+  443/tcp: 9000
+  80/tcp: 8000
+  6030/tcp: 7000
